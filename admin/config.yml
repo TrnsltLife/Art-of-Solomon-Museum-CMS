@@ -1,4 +1,4 @@
 backend:
   name: github
-  repo: TrnsltLife/Art-of-Solomon-Museum-CMS
+  repo: TrnsltLife/Art-of-Solomon-Museum-CMS-Data
   branch: main
