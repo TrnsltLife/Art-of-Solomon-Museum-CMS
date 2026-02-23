@@ -24,21 +24,22 @@ collections:
 
     fields:
       - { label: "Artifact Name", name: "artifact_name", widget: "string", hint: "ArtistLastName-TitleAbbreviation-YearCreated, e.g. Zonia-Arise-1975, Preyzner-Cantiques-1977" }
-      - { label: "Accession Number", name: "accession_number", widget: "string", hint: "Year.Number, e.g. 2026.001"}
+      - { label: "Accession Number", name: "accession_number", widget: "string", require: false, hint: "Year.Number, e.g. 2026.001"}
       - label: "Type"
-          name: "type"
-          widget: "select"
-          options:
-            - { label: "Aromatic", value: "aromatic" }
-            - { label: "Book", value: "book" }
-            - { label: "Furniture", value: "furniture" }
-            - { label: "Painting", value: "painting" }
-            - { label: "Plant", value: "plant" }
-            - { label: "Print", value: "print" }
-            - { label: "Sculpture", value: "sculpture" }
-            - { label: "Tapestry", value: "tapestry" }
-          allow_add: false
-      - { label: "Title", name: "title", widget: "string", required: false }
+        name: "type"
+        widget: "select"
+        options:
+          - { label: "Aromatic", value: "aromatic" }
+          - { label: "Book", value: "book" }
+          - { label: "Furniture", value: "furniture" }
+          - { label: "Painting", value: "painting" }
+          - { label: "Plant", value: "plant" }
+          - { label: "Print", value: "print" }
+          - { label: "Sculpture", value: "sculpture" }
+          - { label: "Tapestry", value: "tapestry" }
+        allow_add: false
+        required: false
+      - { label: "Title", name: "title", widget: "string", required: true }
       - { label: "Year Created", name: "year_created", widget: "string", required: false }
       - { label: "Location Created", name: "location_created", widget: "string", required: false }
       - { label: "Limitation Statement", name: "limitation_statement", widget: "markdown", required: false }
@@ -46,18 +47,22 @@ collections:
       #- { label: "Provenance", name: "provenance", widget: "text", required: false }
       - label: "Contributors"
         name: "contributors"
+        required: "true"
         widget: "list"
         summary: "{{fields.name}} — {{fields.role}}"
         fields:
           - label: "Name"
             name: "name"
+            required: false
             widget: "string"
 
           - label: "Role"
             name: "role"
+            required: true
             widget: "select"
             options:
               - { label: "Artist", value: "artist" }
+              - { label: "Anonymous", value: "anonymous" }
               - { label: "Author", value: "author" }
               - { label: "Editor", value: "editor" }
               - { label: "Font Design", value: "font_design" }
@@ -66,6 +71,7 @@ collections:
             allow_add: false
       - label: "Artifact Images"
         name: "images"
+        required: false
         widget: "list"
         fields:
           - label: "Image"
