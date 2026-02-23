@@ -25,7 +25,7 @@ collections:
 
     fields:
       - { label: "Artifact Name", name: "artifact_name", widget: "string", required: true, hint: "ArtistLastName-TitleAbbreviation-YearCreated, e.g. Zonia-Arise-1975, Preyzner-Cantiques-1977" }
-      - { label: "Accession Number", name: "accession_number", widget: "string", required: false, hint: "Year.Number, e.g. 2026.001"}
+      #- { label: "Accession Number", name: "accession_number", widget: "string", required: false, hint: "Year.Number, e.g. 2026.001"}
       - label: "Type"
         name: "type"
         widget: "select"
@@ -44,6 +44,13 @@ collections:
       - { label: "Subtitle", name: "subtitle", widget: "string", required: false }
       - { label: "Year Created", name: "year_created", widget: "string", required: false }
       - { label: "Location Created", name: "location_created", widget: "string", required: false }
+      - label: "On Loan From"
+        name: "on_loan_from"
+        widget: "select"
+        options:
+          - { label: "Jeremy Brown Heritage Trust", value: "jeremy_brown_heritage_trust" }
+        allow_add: false
+        required: false
       - { label: "Limitation Statement", name: "limitation_statement", widget: "markdown", required: false }
       #- { label: "Medium", name: "medium", widget: "string", required: false }
       #- { label: "Provenance", name: "provenance", widget: "text", required: false }
@@ -66,10 +73,15 @@ collections:
               - { label: "Artist", value: "artist" }
               - { label: "Anonymous", value: "anonymous" }
               - { label: "Author", value: "author" }
+              - { label: "Cover Design", value: "cover_design" }
+              - { label: "Design", value: "design" }
               - { label: "Editor", value: "editor" }
               - { label: "Font Design", value: "font_design" }
+              - { label: "Notes", value: "notes" }
               - { label: "Publisher", value: "publisher" }
+              - { label: "Text", value: "text" }
               - { label: "Translator", value: "translator" }
+              - { label: "Translation", value: "translation" }
             allow_add: false
       - label: "Artifact Images"
         name: "images"
@@ -83,13 +95,15 @@ collections:
             name: "type"
             widget: "select"
             options:
-              - { label: "Back Cover", value: "back_cover" }
               - { label: "Cover", value: "cover" }
               - { label: "Detail", value: "detail" }
               - { label: "Main", value: "main" }
               - { label: "Page", value: "page" }
+              - { label: "Slipcase", value: "slipcase" }
+              - { label: "Slipcover", value: "slipcover" }
               - { label: "Spine", value: "spine" }
             allow_add: false
+          - { label: "Description", name: "description", widget: "string", required: false }
           - label: "Interpretations"
             name: "interpretations"
             widget: "list"
