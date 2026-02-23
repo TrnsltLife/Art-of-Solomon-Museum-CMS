@@ -23,10 +23,25 @@ collections:
     public_folder: ""
 
     fields:
-      - { label: "Artifact Name", name: "title", widget: "string" }
-      #- { label: "Accession Number", name: "accession_number", widget: "string" }
-      - { label: "Year Published", name: "year_created", widget: "string", required: false }
+      - { label: "Artifact Name", name: "artifact_name", widget: "string", hint: "ArtistLastName-TitleAbbreviation-YearCreated, e.g. Zonia-Arise-1975, Preyzner-Cantiques-1977" }
+      - { label: "Accession Number", name: "accession_number", widget: "string", hint: "Year.Number, e.g. 2026.001"}
+      - label: "Type"
+          name: "type"
+          widget: "select"
+          options:
+            - { label: "Aromatic", value: "aromatic" }
+            - { label: "Book", value: "book" }
+            - { label: "Furniture", value: "furniture" }
+            - { label: "Painting", value: "painting" }
+            - { label: "Plant", value: "plant" }
+            - { label: "Print", value: "print" }
+            - { label: "Sculpture", value: "sculpture" }
+            - { label: "Tapestry", value: "tapestry" }
+          allow_add: false
+      - { label: "Title", name: "title", widget: "string", required: false }
+      - { label: "Year Created", name: "year_created", widget: "string", required: false }
       - { label: "Location Created", name: "location_created", widget: "string", required: false }
+      - { label: "Limitation Statement", name: "limitation_statement", widget: "markdown", required: false }
       #- { label: "Medium", name: "medium", widget: "string", required: false }
       #- { label: "Provenance", name: "provenance", widget: "text", required: false }
       - label: "Contributors"
@@ -46,7 +61,6 @@ collections:
               - { label: "Author", value: "author" }
               - { label: "Editor", value: "editor" }
               - { label: "Font Design", value: "font_design" }
-              - { label: "Illustrator", value: "illustrator" }
               - { label: "Publisher", value: "publisher" }
               - { label: "Translator", value: "translator" }
             allow_add: false
@@ -57,7 +71,17 @@ collections:
           - label: "Image"
             name: "image"
             widget: "image"
-
+          - label: "Type"
+            name: "type"
+            widget: "select"
+            options:
+              - { label: "Back Cover", value: "back_cover" }
+              - { label: "Cover", value: "cover" }
+              - { label: "Detail", value: "detail" }
+              - { label: "Main", value: "main" }
+              - { label: "Page", value: "page" }
+              - { label: "Spine", value: "spine" }
+            allow_add: false
           - label: "Interpretations"
             name: "interpretations"
             widget: "list"
