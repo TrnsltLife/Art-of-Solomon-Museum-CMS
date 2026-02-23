@@ -2,3 +2,66 @@ backend:
   name: github
   repo: TrnsltLife/Art-of-Solomon-Museum-CMS-Data
   branch: main
+  #base_url: 
+  #auth_endpoint: auth
+
+local_backend: true
+
+media_folder: "content/artifacts/media"
+public_folder: "/content/artifacts/media"
+
+collections:
+  - name: "artifacts"
+    label: "Artifacts"
+    folder: "content/artifacts"
+    create: true
+    slug: "{{slug}}"
+    path: "{{slug}}/index"
+    format: "frontmatter"
+    extension: "md"
+    media_folder: ""
+    public_folder: ""
+
+    fields:
+      - { label: "Artifact Name", name: "title", widget: "string" }
+      #- { label: "Accession Number", name: "accession_number", widget: "string" }
+      - { label: "Year Published", name: "year_created", widget: "string", required: false }
+      - { label: "Location Created", name: "location_created", widget: "string", required: false }
+      #- { label: "Medium", name: "medium", widget: "string", required: false }
+      #- { label: "Provenance", name: "provenance", widget: "text", required: false }
+      - label: "Contributors"
+        name: "contributors"
+        widget: "list"
+        summary: "{{fields.name}} — {{fields.role}}"
+        fields:
+          - label: "Name"
+            name: "name"
+            widget: "string"
+
+          - label: "Role"
+            name: "role"
+            widget: "select"
+            options:
+              - { label: "Artist", value: "artist" }
+              - { label: "Author", value: "author" }
+              - { label: "Editor", value: "editor" }
+              - { label: "Font Design", value: "font_design" }
+              - { label: "Illustrator", value: "illustrator" }
+              - { label: "Publisher", value: "publisher" }
+              - { label: "Translator", value: "translator" }
+            allow_add: false
+      - label: "Artifact Images"
+        name: "images"
+        widget: "list"
+        fields:
+          - label: "Image"
+            name: "image"
+            widget: "image"
+
+          - label: "Interpretations"
+            name: "interpretations"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Text", name: "text", widget: "markdown" }
+              - { label: "Tags", name: "tags", widget: "string", required: false }
