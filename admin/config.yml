@@ -41,7 +41,7 @@ collections:
         allow_add: false
         required: false
       - { label: "Title", name: "title", widget: "string", required: true }
-      - { label: "Subtitle", name: "subtitle", widget: "string", required: true }
+      - { label: "Subtitle", name: "subtitle", widget: "string", required: false }
       - { label: "Year Created", name: "year_created", widget: "string", required: false }
       - { label: "Location Created", name: "location_created", widget: "string", required: false }
       - { label: "Limitation Statement", name: "limitation_statement", widget: "markdown", required: false }
