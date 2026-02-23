@@ -15,16 +15,17 @@ collections:
     label: "Artifacts"
     folder: "content/artifacts"
     create: true
-    slug: "{{slug}}"
+    slug: "{{fields.artifact_name}}"
     path: "{{slug}}/index"
     format: "frontmatter"
     extension: "md"
     media_folder: ""
     public_folder: ""
+    summary: "{{artifact_name}} - {{title}} {{subitle}}"
 
     fields:
-      - { label: "Artifact Name", name: "artifact_name", widget: "string", hint: "ArtistLastName-TitleAbbreviation-YearCreated, e.g. Zonia-Arise-1975, Preyzner-Cantiques-1977" }
-      - { label: "Accession Number", name: "accession_number", widget: "string", require: false, hint: "Year.Number, e.g. 2026.001"}
+      - { label: "Artifact Name", name: "artifact_name", widget: "string", required: true, hint: "ArtistLastName-TitleAbbreviation-YearCreated, e.g. Zonia-Arise-1975, Preyzner-Cantiques-1977" }
+      - { label: "Accession Number", name: "accession_number", widget: "string", required: false, hint: "Year.Number, e.g. 2026.001"}
       - label: "Type"
         name: "type"
         widget: "select"
@@ -40,6 +41,7 @@ collections:
         allow_add: false
         required: false
       - { label: "Title", name: "title", widget: "string", required: true }
+      - { label: "Subtitle", name: "subtitle", widget: "string", required: true }
       - { label: "Year Created", name: "year_created", widget: "string", required: false }
       - { label: "Location Created", name: "location_created", widget: "string", required: false }
       - { label: "Limitation Statement", name: "limitation_statement", widget: "markdown", required: false }
@@ -47,7 +49,7 @@ collections:
       #- { label: "Provenance", name: "provenance", widget: "text", required: false }
       - label: "Contributors"
         name: "contributors"
-        required: "true"
+        required: true
         widget: "list"
         summary: "{{fields.name}} — {{fields.role}}"
         fields:
