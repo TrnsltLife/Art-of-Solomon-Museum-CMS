@@ -2,10 +2,6 @@ backend:
   name: github
   repo: TrnsltLife/Art-of-Solomon-Museum-CMS-Data
   branch: main
-  #base_url: 
-  #auth_endpoint: auth
-
-local_backend: true
 
 media_folder: "content/artifacts/media"
 public_folder: "/content/artifacts/media"
@@ -21,7 +17,7 @@ collections:
     extension: "md"
     media_folder: ""
     public_folder: ""
-    summary: "{{artifact_name}} - {{title}} {{subitle}}"
+    summary: "{{artifact_name}} - {{title}} {{subtitle}}"
 
     fields:
       - { label: "Artifact Name", name: "artifact_name", widget: "string", required: true, hint: "ArtistLastName-TitleAbbreviation-YearCreated, e.g. Zonia-Arise-1975, Preyzner-Cantiques-1977" }
@@ -51,9 +47,29 @@ collections:
           - { label: "Jeremy Brown Heritage Trust", value: "jeremy_brown_heritage_trust" }
         allow_add: false
         required: false
+      - { label: "Purchase Price", name: "purchase_price", widget: "string", required: false }
+      - { label: "Copy Number", name: "copy_number", widget: "string", required: false }
       - { label: "Limitation Statement", name: "limitation_statement", widget: "markdown", required: false }
+      - { label: "Accompanying Items", name: "accompanying_items", widget: "markdown", required: false }
       #- { label: "Medium", name: "medium", widget: "string", required: false }
       #- { label: "Provenance", name: "provenance", widget: "text", required: false }
+      - label: "Languages"
+        name: "languages"
+        required: false
+        widget: "list"
+        summary: "{{fields.language}}"
+        fields:
+          - label: "Language"
+            name: "language"
+            required: false
+            widget: "select"
+            options:
+              - { label: "English", value: "eng" }
+              - { label: "French", value: "fra" }
+              - { label: "German", value: "deu" }
+              - { label: "Hebrew", value: "heb" }
+              - { label: "Swedish", value: "swe" }
+            allow_add: false
       - label: "Contributors"
         name: "contributors"
         required: true
@@ -71,13 +87,13 @@ collections:
             widget: "select"
             options:
               - { label: "Artist", value: "artist" }
-              - { label: "Anonymous", value: "anonymous" }
               - { label: "Author", value: "author" }
               - { label: "Cover Design", value: "cover_design" }
               - { label: "Design", value: "design" }
               - { label: "Editor", value: "editor" }
               - { label: "Font Design", value: "font_design" }
               - { label: "Notes", value: "notes" }
+              - { label: "Other", value: "other" }
               - { label: "Publisher", value: "publisher" }
               - { label: "Text", value: "text" }
               - { label: "Translator", value: "translator" }

@@ -1,10 +1,10 @@
 @echo off
 cd /d %~dp0
 
-echo Starting Decap local backend...
-start "Decap Backend" cmd /k npx decap-server
+REM echo Starting Decap local backend...
+REM start "Decap Backend" cmd /k npx decap-server
 
-timeout /t 2 > nul
+REM timeout /t 2 > nul
 
 echo Starting local static server...
 start "Static Server" cmd /k npx serve . -l 8000
