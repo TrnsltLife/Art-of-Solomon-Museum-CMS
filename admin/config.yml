@@ -44,13 +44,14 @@ collections:
         name: "on_loan_from"
         widget: "select"
         options:
-          - { label: "Jeremy Brown Heritage Trust", value: "jeremy_brown_heritage_trust" }
+          - { label: "Jeremy Brown Collection Trust", value: "jeremy_brown_heritage_trust" }
         allow_add: false
         required: false
       - { label: "Purchase Price", name: "purchase_price", widget: "string", required: false }
       - { label: "Copy Number", name: "copy_number", widget: "string", required: false }
       - { label: "Limitation Statement", name: "limitation_statement", widget: "markdown", required: false }
       - { label: "Accompanying Items", name: "accompanying_items", widget: "markdown", required: false }
+      - { label: "Description", name: "description", widget: "markdown", required: false }
       #- { label: "Medium", name: "medium", widget: "string", required: false }
       #- { label: "Provenance", name: "provenance", widget: "text", required: false }
       - label: "Languages"
