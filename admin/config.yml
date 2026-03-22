@@ -44,10 +44,11 @@ collections:
         name: "on_loan_from"
         widget: "select"
         options:
-          - { label: "Jeremy Brown Collection Trust", value: "jeremy_brown_heritage_trust" }
+          - { label: "Jeremy Brown Collection Trust", value: "jeremy_brown_collection_trust" }
         allow_add: false
         required: false
       - { label: "Purchase Price", name: "purchase_price", widget: "string", required: false }
+      - { label: "Original Date Purchased", name: "original_date_purchased", widget: "string", required: false }      
       - { label: "Copy Number", name: "copy_number", widget: "string", required: false }
       - { label: "Limitation Statement", name: "limitation_statement", widget: "markdown", required: false }
       - { label: "Accompanying Items", name: "accompanying_items", widget: "markdown", required: false }
@@ -93,6 +94,8 @@ collections:
               - { label: "Design", value: "design" }
               - { label: "Editor", value: "editor" }
               - { label: "Font Design", value: "font_design" }
+              - { label: "Forward", value: "forward" }
+              - { label: "Introduction", value: "introduction" }
               - { label: "Notes", value: "notes" }
               - { label: "Other", value: "other" }
               - { label: "Publisher", value: "publisher" }
